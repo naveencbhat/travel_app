@@ -24,11 +24,11 @@ function Header({ setCoordinates }) {
       <AppBar position="static">
         <Toolbar className={classes.toolbar}>
           <Typography variant="h5" className={classes.title}>
-            Travel Advisor
+            World Travel
           </Typography>
           <Box display="flex" width="50%">
             <Typography variant="h6" width="30%" className={classes.title}>
-              Explore Places
+              Explore World
             </Typography>
             <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
               <div className={classes.search}>
