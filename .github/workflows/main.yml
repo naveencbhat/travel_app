@@ -13,7 +13,7 @@ jobs:
 
     # Download our master branch
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     # Run our deployment command
     - name: Deploying the static website to gh-pages
