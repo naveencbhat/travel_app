@@ -1,20 +1,31 @@
-# This script deploys your website automatically
-name: CI
-
-# Only trigger this script when you push to the master branch
+# Controls when the action will run.
 on:
-  push:
-    branches: [ master ]
-
-# Specify the tasks to run when this script gets triggered
+    # Triggers the workflow on push or pull request events but only for the master branch
+    push:
+        branches: [master]
+    pull_request:
+        branches: [master]
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    # Download our master branch
-    steps:
-    - uses: actions/checkout@v2
-
-    # Run our deployment command
-    - name: Deploying the static website to gh-pages
-      run: npm run deploy
+    react-app-workflow:
+        # The type of runner that the job will run on
+        runs-on: ubuntu-latest
+        # Steps represent a sequence of tasks that will be executed as part of the job
+        steps:
+            - uses: actions/checkout@v2
+            - name: Use Node.js 18.x
+              uses: actions/setup-node@v2
+              with:
+                  node-version: 18.x
+            - name: npm ci
+              run: npm ci
+            - name: test
+              run: npm test
+            - name: format
+              run: npm run prettier
+            - name: lint
+              run: npm run lint
+            - name: typescript
+              run: npm run typescript
+            - name: build
+              run: npm run build --if-present
