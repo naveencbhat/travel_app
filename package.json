@@ -28,11 +28,6 @@
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run prod"
-    }
-  },
   "eslintConfig": {
     "extends": [
       "react-app",
